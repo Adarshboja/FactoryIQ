@@ -1,8 +1,9 @@
 import { useMemo, useState } from "react";
 import axios from "axios";
+import BASE_URL from "../api";
 
 const api = axios.create({
-  baseURL: "http://localhost:5000/api"
+  baseURL: `${BASE_URL}/api`
 });
 
 export default function Login() {
@@ -30,8 +31,7 @@ export default function Login() {
       setMessage("");
       setMessageType("info");
 
-      const endpoint = mode === "login" ? "/auth/login" : "/auth/register";
-      const payload =
+const endpoint = mode === "login" ? "/auth/login" : "/auth/register";      const payload =
         mode === "login"
           ? { email, password }
           : { name: name || "Factory Lead", email, password, role };

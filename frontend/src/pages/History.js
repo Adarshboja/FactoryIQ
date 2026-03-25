@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const api = axios.create({
-  baseURL: "http://localhost:5000/api"
-});
+import BASE_URL from "../api";
 
+const api = axios.create({
+  baseURL: `${BASE_URL}/api`
+});
 export default function History() {
   const [logs, setLogs] = useState([]);
   const token = localStorage.getItem("token");
